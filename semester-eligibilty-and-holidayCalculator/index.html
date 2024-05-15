@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Attendance Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="min-h-screen flex justify-center align-center bg-black">
+    <div class="container mx-auto p-4  bg-white rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold text-center mb-6">Exam Eligibilty calculator</h1>
+    
+        <div class="grid grid-cols-1 gap-4">
+          <div>
+            <label for="classesAttended" class="block text-gray-700 text-sm font-bold mb-2">Number of classes attended:</label>
+            <input type="number" id="classesAttended" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+          </div>
+          <div>
+            <label for="totalClasses" class="block text-gray-700 text-sm font-bold mb-2">Total number of classes:</label>
+            <input type="number" id="totalClasses" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" >
+          </div>
+          <div>
+            <label for="requiredAttendance" class="block text-gray-700 text-sm font-bold mb-2">Minimum required attendance percentage:</label>
+            <input type="number" id="requiredAttendance" step="0.01" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value="75">
+          </div>
+          <div class="text-center">
+            <button id="calculateButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus-shadow-outline">Calculate how much days you can skip biometric</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script>
+    function calculateAttendancePercentage(classesAttended, totalClasses) {
+      return (classesAttended / totalClasses) * 100;
+    }
+    
+    function calculateOptionalHolidays(classesAttended, totalClasses, requiredAttendance) {
+      let optionalHolidays = 0;
+      while (calculateAttendancePercentage(classesAttended, totalClasses + optionalHolidays) >= requiredAttendance) {
+        optionalHolidays++;
+      }
+      return optionalHolidays - 1;
+    }
+    
+    function calculateClassesNeeded(classesAttended, totalClasses, requiredAttendance) {
+      let classesNeeded = 0;
+      while (calculateAttendancePercentage(classesAttended + classesNeeded, totalClasses + classesNeeded) < requiredAttendance) {
+        classesNeeded++;
+      }
+      return classesNeeded;
+    }
+    
+    document.getElementById('calculateButton').addEventListener('click', function() {
+      const classesAttended = parseInt(document.getElementById('classesAttended').value);
+      const totalClasses = parseInt(document.getElementById('totalClasses').value);
+      const requiredAttendance = parseFloat(document.getElementById('requiredAttendance').value);
+  
+      if (isNaN(classesAttended) || isNaN(totalClasses) || isNaN(requiredAttendance)) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Invalid input. Please enter valid numbers.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+        return; // Exit function early if input is invalid
+      }
+  
+      const attendancePercentage = calculateAttendancePercentage(classesAttended, totalClasses);
+  
+      if (isNaN(attendancePercentage)) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Failed to calculate attendance percentage. Please ensure the input values are valid.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+        return; // Exit function early if attendance percentage is NaN
+      }
+  
+      if (attendancePercentage >= requiredAttendance) {
+        const optionalHolidays = calculateOptionalHolidays(classesAttended, totalClasses, requiredAttendance);
+        Swal.fire({
+          title: 'Attendance Result',
+          html: `<p style="font-size: 20px; color: green;">Your current attendance percentage is: ${attendancePercentage.toFixed(2)}%</p>
+                <p style="font-size: 18px;">You are already above ${requiredAttendance}%, you can afford to take up to ${optionalHolidays} holidays.</p>`,
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+      } else {
+        const classesNeeded = calculateClassesNeeded(classesAttended, totalClasses, requiredAttendance);
+        Swal.fire({
+          title: 'Attendance Result',
+          html: `<p style="font-size: 20px; color: red;">Your current attendance percentage is: ${attendancePercentage.toFixed(2)}%</p>
+                <p style="font-size: 18px;">You need to attend ${classesNeeded} more classes to reach ${requiredAttendance}% attendance.</p>`,
+          icon: 'warning',
+          confirmButtonText: 'OK'
+        });
+      }
+    });
+  </script>
+</body>
+</html>
