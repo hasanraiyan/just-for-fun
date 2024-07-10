@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-6">
+    <div class="max-w-md mx-auto bg-white p-6 rounded-md shadow-md">
+        <h1 class="text-2xl font-bold mb-4 text-center">Calculate SGPA</h1>
+        
+        <!-- Form to input subject details -->
+        <form id="sgpaForm">
+            <!-- Subject 1: BASIC ELECTRICAL ENGINEERING -->
+            <div class="mb-4">
+                <label for="subject1" class="block text-sm font-medium text-gray-700">Subject Name: BASIC ELECTRICAL ENGINEERING</label>
+                <input type="text" id="subject1" name="subject1" value="BASIC ELECTRICAL ENGINEERING" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject1Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject1Grade" name="subject1Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject1Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject1Credits" name="subject1Credits" value="4.00" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- Subject 2: ENGINEERING GRAPHICS & DESIGN -->
+            <div class="mb-4">
+                <label for="subject2" class="block text-sm font-medium text-gray-700">Subject Name: ENGINEERING GRAPHICS & DESIGN</label>
+                <input type="text" id="subject2" name="subject2" value="ENGINEERING GRAPHICS & DESIGN" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject2Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject2Grade" name="subject2Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject2Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject2Credits" name="subject2Credits" value="1.00" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- Subject 3: PHYSICS (SEMICONDUCTOR PHYSICS AND INTRODUCTION TO QUANTUM MECHANICS) -->
+            <div class="mb-4">
+                <label for="subject3" class="block text-sm font-medium text-gray-700">Subject Name: PHYSICS (SEMICONDUCTOR PHYSICS AND INTRODUCTION TO QUANTUM MECHANICS)</label>
+                <input type="text" id="subject3" name="subject3" value="PHYSICS (SEMICONDUCTOR PHYSICS AND INTRODUCTION TO QUANTUM MECHANICS)" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject3Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject3Grade" name="subject3Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject3Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject3Credits" name="subject3Credits" value="4.00" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- Subject 4: MATHEMATICS - I (CALCULUS AND LINEAR ALGEBRA) -->
+            <div class="mb-4">
+                <label for="subject4" class="block text-sm font-medium text-gray-700">Subject Name: MATHEMATICS - I (CALCULUS AND LINEAR ALGEBRA)</label>
+                <input type="text" id="subject4" name="subject4" value="MATHEMATICS - I (CALCULUS AND LINEAR ALGEBRA)" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject4Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject4Grade" name="subject4Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject4Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject4Credits" name="subject4Credits" value="4.00" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+            
+            <!-- Practical Subjects -->
+
+            <!-- Subject 5: BASIC ELECTRICAL ENGINEERING (Practical) -->
+            <div class="mb-4">
+                <label for="subject5" class="block text-sm font-medium text-gray-700">Subject Name: BASIC ELECTRICAL ENGINEERING (Practical)</label>
+                <input type="text" id="subject5" name="subject5" value="BASIC ELECTRICAL ENGINEERING (Practical)" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject5Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject5Grade" name="subject5Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject5Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject5Credits" name="subject5Credits" value="1.00" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- Subject 6: ENGINEERING GRAPHICS & DESIGN (Practical) -->
+            <div class="mb-4">
+                <label for="subject6" class="block text-sm font-medium text-gray-700">Subject Name: ENGINEERING GRAPHICS & DESIGN (Practical)</label>
+                <input type="text" id="subject6" name="subject6" value="ENGINEERING GRAPHICS & DESIGN (Practical)" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject6Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject6Grade" name="subject6Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject6Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject6Credits" name="subject6Credits" value="2.00" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- Subject 7: PHYSICS (SEMICONDUCTOR PHYSICS) (Practical) -->
+            <div class="mb-4">
+                <label for="subject7" class="block text-sm font-medium text-gray-700">Subject Name: PHYSICS (SEMICONDUCTOR PHYSICS) (Practical)</label>
+                <input type="text" id="subject7" name="subject7" value="PHYSICS (SEMICONDUCTOR PHYSICS) (Practical)" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                
+                <div class="mt-2">
+                    <label for="subject7Grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                    <select id="subject7Grade" name="subject7Grade" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="">Select Grade</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="P">P</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+
+                <div class="mt-2">
+                    <label for="subject7Credits" class="block text-sm font-medium text-gray-700">Credits</label>
+                    <input type="number" id="subject7Credits" name="subject7Credits" value="1.50" disabled class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+            </div>
+            
+            <!-- Button to Calculate SGPA -->
+            <div class="mt-6">
+                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Calculate SGPA</button>
+            </div>
+        </form>
+
+        <!-- Result Display Area -->
+        <div id="result" class="mt-6 text-center"></div>
+    </div>
+
+    <!-- Include JavaScript for functionality -->
+    <script>
+
+        // Function to calculate SGPA based on grades and credits
+function calculateSGPA(subjects) {
+    let totalCredits = 0;
+    let totalGradePoints = 0;
+
+    // Define grade points based on the provided grading system
+    const gradePoints = {
+        'A+': 10,
+        'A': 9,
+        'B': 8,
+        'C': 7,
+        'D': 6,
+        'P': 5,
+        'F': 0
+    };
+
+    // Iterate through each subject
+    subjects.forEach(subject => {
+        const grade = document.getElementById(subject.id + 'Grade').value;
+        const credits = parseFloat(document.getElementById(subject.id + 'Credits').value);
+
+        if (gradePoints.hasOwnProperty(grade)) {
+            totalGradePoints += gradePoints[grade] * credits;
+            totalCredits += credits;
+        }
+    });
+
+    // Calculate SGPA
+    const sgpa = totalGradePoints / totalCredits;
+
+    // Return SGPA rounded to 2 decimal places
+    return sgpa.toFixed(2);
+}
+
+// Handle form submission
+document.getElementById('sgpaForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Define subjects with their respective IDs and names
+    const subjects = [
+        { id: 'subject1', name: 'BASIC ELECTRICAL ENGINEERING' },
+        { id: 'subject2', name: 'ENGINEERING GRAPHICS & DESIGN' },
+        { id: 'subject3', name: 'PHYSICS (SEMICONDUCTOR PHYSICS AND INTRODUCTION TO QUANTUM MECHANICS)' },
+        { id: 'subject4', name: 'MATHEMATICS - I (CALCULUS AND LINEAR ALGEBRA)' },
+        { id: 'subject5', name: 'BASIC ELECTRICAL ENGINEERING (Practical)' },
+        { id: 'subject6', name: 'ENGINEERING GRAPHICS & DESIGN (Practical)' },
+        { id: 'subject7', name: 'PHYSICS (SEMICONDUCTOR PHYSICS) (Practical)' }
+    ];
+
+    // Calculate SGPA
+    const sgpa = calculateSGPA(subjects);
+
+    // Display result
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `<p class="text-xl font-semibold">Your SGPA is: ${sgpa}</p>`;
+});
+
+    </script>
+</body>
+
+
+</html>
